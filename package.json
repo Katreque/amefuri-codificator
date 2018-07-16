@@ -1,0 +1,31 @@
+{
+  "name": "amefuri-codificator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "aliv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Katreque/amefuri-codificator.git"
+  },
+  "keywords": [
+    "Amefuri"
+  ],
+  "author": "Katreque",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Katreque/amefuri-codificator/issues"
+  },
+  "homepage": "https://github.com/Katreque/amefuri-codificator#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.2",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  },
+  "devDependencies": {
+    "aliv": "^1.11.0"
+  }
+}

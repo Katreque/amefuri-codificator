@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <base href="/"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Amefuri Codificator</title>
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./styles/style.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="borda-card text-center">
+        <p>Participe do nosso grupo no Facebook!</p>
+        <a href="https://www.facebook.com/groups/amefuri16" target="no_blank">
+          <img src="./images/logo.png" class="img-fluid" width="300" height="400"></img>
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="borda-card codificar-color-card text-center">
+        <div class="form-group">
+          <p>Codifique seu link aqui:</p>
+          <input id="codificar-input"class="form-control"></input>
+        </div>
+        <button id="codificar" class="btn btn-dark">Codificar</button>
+        <button id="limpar-codificar" class="btn btn-dark">Limpar</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="borda-card decodificar-color-card text-center">
+        <div class="form-group">
+          <p>Decodifique seu código aqui:</p>
+          <input id="decodificar-input" class="form-control"></input>
+        </div>
+        <button id="decodificar" class="btn btn-dark">Decodificar</button>
+        <button id="limpar-decodificar" class="btn btn-dark">Limpar</button>
+      </div>
+    </div>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="./app/codificador.js"></script>
+    <script src="./app/decodificador.js"></script>
+    <script src="./app/bufferControl.js"></script>
+    <script>
+      $('#codificar').click(function(){
+        let valor = $('#codificar-input').val();
+        let stringCodificada = codificar(valor);
+        $('#codificar-input').val(stringCodificada);
+        return bufferControl(stringCodificada);
+      })
+
+      $('#decodificar').click(function(){
+        let valor = $('#decodificar-input').val();
+        let stringDecodificada = decodificar(valor);
+        $('#decodificar-input').val(stringDecodificada);
+        return bufferControl(stringDecodificada);
+      })
+
+      $('#limpar-codificar').click(function(){
+        $('#codificar-input').val("");
+      })
+
+      $('#limpar-decodificar').click(function(){
+        $('#decodificar-input').val("");
+      })
+    </script>
+  </body>
+</html>
