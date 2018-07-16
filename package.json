@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "aliv"
+    "start": "aliv",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,9 @@
   "homepage": "https://github.com/Katreque/amefuri-codificator#readme",
   "dependencies": {
     "bootstrap": "^4.1.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-minify": "^3.1.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
   },
