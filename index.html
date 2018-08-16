@@ -40,15 +40,8 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="borda-card decodificar-color-card text-center">
-        <div class="form-group">
-          <p>Decodifique seu código aqui:</p>
-          <input id="decodificar-input" class="form-control"></input>
-        </div>
-        <button id="decodificar" class="btn btn-dark">Decodificar</button>
-        <button id="limpar-decodificar" class="btn btn-dark">Limpar</button>
-      </div>
+    <div id="divDecodificador" class="container">
+
     </div>
 
     <div style="padding: 10px;"></div>
@@ -60,7 +53,6 @@
         </span>
       </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
@@ -68,28 +60,39 @@
     <script src="./app/codificador.js"></script>
     <script src="./app/decodificador.js"></script>
     <script src="./app/bufferControl.js"></script>
+    <script src="./app/mainController.js"></script>
     <script>
-      $('#codificar').click(function(){
-        let valor = $('#codificar-input').val();
-        let stringCodificada = codificar(valor);
-        $('#codificar-input').val(stringCodificada);
-        return bufferControl(stringCodificada);
-      })
+      interceptaUrl(location.href)
+        .then((url) => {
+          //Adicionar contador do Timeout para apendar na div acima.
 
-      $('#decodificar').click(function(){
-        let valor = $('#decodificar-input').val();
-        let stringDecodificada = decodificar(valor);
-        $('#decodificar-input').val(stringDecodificada);
-        return bufferControl(stringDecodificada);
-      })
+          /*let _divContador = `
+            <div>
+            </div>
+          `
 
-      $('#limpar-codificar').click(function(){
-        $('#codificar-input').val("");
-      })
+          $('#divDecodificador').append(_divContador);*/
 
-      $('#limpar-decodificar').click(function(){
-        $('#decodificar-input').val("");
-      })
+          setTimeout(() => {            
+            return location.href = url;
+          }, 69)
+        })
+        .catch((err) => {
+          if (!!err) {
+            return console.log('ITS DEAD!');            
+          }
+
+          $('#codificar').click(function() {
+            let valor = $('#codificar-input').val();
+            let stringCodificada = codificar(valor);
+            $('#codificar-input').val(stringCodificada);
+            return bufferControl(stringCodificada);
+          })
+
+          $('#limpar-codificar').click(function(){
+            $('#codificar-input').val("");
+          })
+        })
     </script>
   </body>
 </html>
