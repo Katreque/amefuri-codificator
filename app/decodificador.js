@@ -25,7 +25,7 @@ var decodificarV1 = function(string) {
     }
 
     for(let i = 0; i < string.length; i++) {
-      let char = string[1];
+      let char = string[i];
 
       if (char === "?" || char === "/" || char === "." || char === ":" || char === "#") {
         stringDecodificada += char;
