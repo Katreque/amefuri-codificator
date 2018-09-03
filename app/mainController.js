@@ -18,19 +18,28 @@ var _parseUrlEntrada = function(nome, url) {
 var interceptaUrl = function(url) {
     return new Promise((resolve, reject) => {
         let _tipo = _parseUrlEntrada('tipo', url);
-        
+
         if (!_tipo) {
             return reject();
-        } else {
+        } else if (_tipo === 'cod') {
             let urlCodificada = _parseUrlEntrada('url', url);
             decodificar(urlCodificada.toString())
                 .then((urlDecodificada) => {
                     return resolve(urlDecodificada);
                 })
                 .catch((err) => {
-                    return reject(err); 
+                    return reject(err);
+                })
+        } else if (_tipo === 'cod1') {
+            let urlCodificada = _parseUrlEntrada('url', url);
+            decodificarV1(urlCodificada.toString())
+                .then((urlDecodificada) => {
+                    return resolve(urlDecodificada);
+                })
+                .catch((err) => {
+                    return reject(err);
                 })
         }
     })
-    
+
 }

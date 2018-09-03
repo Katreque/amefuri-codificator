@@ -61,6 +61,7 @@
     <script src="./app/decodificador.js"></script>
     <script src="./app/bufferControl.js"></script>
     <script src="./app/mainController.js"></script>
+    <script src="./app/baseArray.js"></script>
     <script>
       interceptaUrl(location.href)
         .then((url) => {
@@ -73,13 +74,13 @@
 
           $('#divDecodificador').append(_divContador);*/
 
-          setTimeout(() => {            
+          setTimeout(() => {
             return location.href = url;
           }, 69)
         })
         .catch((err) => {
           if (!!err) {
-            return console.log('ITS DEAD!');            
+            return console.log('ITS DEAD!');
           }
 
           $('#codificar').click(function() {
