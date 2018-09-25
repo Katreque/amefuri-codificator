@@ -26,8 +26,9 @@ var decodificarV1 = function(string) {
 
     for(let i = 0; i < string.length; i++) {
       let char = string[i];
+      let regex = /([0-9]|[A-Z]|[a-z])/
 
-      if (char === "?" || char === "/" || char === "." || char === ":" || char === "#" || char == "_" || char == "=" || char == "+" || char == "-") {
+      if (!regex.test(char)) {
         stringDecodificada += char;
         continue;
 
@@ -43,8 +44,6 @@ var decodificarV1 = function(string) {
         stringDecodificada += equivalenteConversaoArray(char, 0)
         continue;
 
-      } else {
-        stringDecodificada += char;
       }
     }
 
